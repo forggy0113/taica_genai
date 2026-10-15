@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>今天吃什麼？｜選擇困難轉盤</title>
+<style>
+:root{--ink:#243044;--muted:#6d7890;--cream:#fffaf2;--paper:#fff;--yellow:#ffd166;--coral:#f26b5b;--teal:#3caea3;--line:#eadfce;--shadow:0 18px 50px #46352a18}
+*{box-sizing:border-box}body{margin:0;color:var(--ink);font-family:"Noto Sans TC","PingFang TC",sans-serif;background:radial-gradient(circle at 8% 10%,#ffe9a5 0 10%,transparent 28%),radial-gradient(circle at 95% 18%,#c9eee6 0 8%,transparent 26%),var(--cream);min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer;border:0}.app{max-width:1180px;margin:auto;padding:30px 22px 48px}.top{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.eyebrow{color:var(--coral);font-weight:800;letter-spacing:2px;font-size:13px}.title{font-family:Georgia,"Noto Serif TC",serif;font-size:clamp(34px,6vw,68px);line-height:.95;margin:8px 0 0;letter-spacing:-2px}.intro{max-width:320px;color:var(--muted);line-height:1.7;margin:0}.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}.card{background:#ffffffd9;border:1px solid #fff;box-shadow:var(--shadow);border-radius:26px;padding:24px}.wheel-card{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:600px;overflow:hidden}.wheel-wrap{position:relative;margin:15px auto 25px}.wheel{width:min(70vw,390px);height:min(70vw,390px);border-radius:50%;border:13px solid #fff;box-shadow:0 10px 25px #49362a2b;position:relative;overflow:hidden;transition:transform 4.2s cubic-bezier(.12,.76,.15,1);background:conic-gradient(#f26b5b 0 12.5%,#ffd166 12.5% 25%,#6fc7bc 25% 37.5%,#82a9db 37.5% 50%,#f8a978 50% 62.5%,#b8a4dc 62.5% 75%,#91c788 75% 87.5%,#f2a2bc 87.5% 100%)}.wheel:after{content:"";position:absolute;inset:34%;border-radius:50%;background:#fff;box-shadow:0 3px 10px #0002}.wheel-label{position:absolute;z-index:1;top:50%;left:50%;width:34%;text-align:center;font-size:clamp(10px,2vw,14px);font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transform-origin:0 0}.pointer{position:absolute;z-index:2;top:-7px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:18px solid transparent;border-right:18px solid transparent;border-top:36px solid var(--ink);filter:drop-shadow(0 3px 2px #0003)}.spin{background:var(--ink);color:#fff;padding:15px 34px;border-radius:99px;font-weight:800;font-size:18px;box-shadow:0 6px 0 #101827;transition:.15s}.spin:hover{transform:translateY(-2px);box-shadow:0 8px 0 #101827}.spin:active{transform:translateY(3px);box-shadow:0 3px 0 #101827}.spin:disabled{opacity:.55;cursor:not-allowed}.result{min-height:68px;text-align:center;margin-top:18px}.result strong{display:block;font-family:Georgia,"Noto Serif TC",serif;font-size:30px;color:var(--coral)}.result small{color:var(--muted)}.controls h2,.list-head h2{font-size:20px;margin:0}.controls{display:grid;gap:16px}.field{display:grid;gap:7px}.field label{font-weight:800;font-size:14px}.field input,.field select{border:1px solid var(--line);background:#fffaf7;border-radius:12px;padding:11px 13px;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:var(--teal);box-shadow:0 0 0 3px #3caea333}.filters{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px}.check input{accent-color:var(--coral);width:17px;height:17px}.add{display:flex;gap:8px}.add input{min-width:0;flex:1}.add button,.reset{border-radius:12px;padding:0 16px;font-weight:800}.add button{background:var(--coral);color:#fff}.reset{background:#f2eadc;color:var(--muted);padding:10px 14px}.divider{height:1px;background:var(--line);margin:4px 0}.list-head{display:flex;justify-content:space-between;align-items:center}.count{background:#fff0c7;border-radius:20px;padding:5px 10px;font-size:13px;font-weight:800}.food-list{display:grid;gap:8px;margin-top:4px;max-height:300px;overflow:auto;padding-right:3px}.food{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:14px;padding:10px 12px;background:#fffaf7}.food-main{flex:1;min-width:0}.food-name{font-weight:800}.food-meta{font-size:12px;color:var(--muted);margin-top:2px}.heart{font-size:20px;background:transparent;color:#bbb;padding:3px}.heart.on{color:var(--coral)}.remove{background:transparent;color:#aaa;font-size:18px;padding:3px}.empty{text-align:center;color:var(--muted);padding:20px 5px}.tip{background:#e5f5ee;border-radius:14px;padding:11px 13px;color:#39776d;font-size:13px;line-height:1.5}
+@media(max-width:800px){.top{display:block}.intro{margin-top:14px}.layout{grid-template-columns:1fr}.wheel-card{min-height:500px}.wheel{width:min(78vw,350px);height:min(78vw,350px)}}
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="top"><div><div class="eyebrow">A LITTLE DAILY DECISION</div><h1 class="title">今天吃什麼？</h1></div><p class="intro">把選擇困難交給命運。<br>先設定條件，再按下轉盤，今天就吃這一餐！</p></header>
+  <section class="layout">
+    <article class="card wheel-card">
+      <div class="wheel-wrap"><div class="pointer"></div><div id="wheel" class="wheel" aria-label="餐點轉盤"></div></div>
+      <button id="spin" class="spin">開始轉！</button>
+      <div id="result" class="result" aria-live="polite"><small>準備好就按下按鈕吧</small></div>
+    </article>
+    <aside class="card controls">
+      <h2>今天的條件</h2>
+      <div class="filters"><div class="field"><label for="type">餐點類型</label><select id="type"><option value="all">全部類型</option><option>正餐</option><option>麵食</option><option>速食</option><option>小吃</option><option>異國</option><option>甜點</option></select></div><div class="field"><label for="budget">最高預算</label><select id="budget"><option value="9999">不限</option><option value="150">$150 以內</option><option value="250">$250 以內</option><option value="400">$400 以內</option></select></div></div>
+      <label class="check"><input id="onlyFav" type="checkbox"> 只看我的最愛</label>
+      <div class="tip">小提示：不想吃的餐點可以按叉叉移除；按愛心後，下次開啟網頁也會保留。</div>
+      <div class="divider"></div>
+      <h2>加入你的口袋名單</h2>
+      <div class="add"><input id="newFood" placeholder="例如：巷口滷味" maxlength="20"><button id="addBtn">加入</button></div>
+      <div class="list-head"><h2>餐點清單</h2><span id="count" class="count"></span></div>
+      <div id="foodList" class="food-list"></div>
+      <button id="reset" class="reset">恢復預設餐點</button>
+    </aside>
+  </section>
+</main>
+<script>
+const defaults=[['日式咖哩飯','正餐',180],['韓式拌飯','異國',220],['牛肉麵','麵食',160],['義大利麵','異國',260],['雞肉飯','小吃',80],['鍋燒意麵','麵食',120],['漢堡薯條','速食',190],['越南河粉','異國',180],['壽司','正餐',350],['鹽酥雞','小吃',150],['石鍋拌飯','異國',280],['珍珠奶茶','甜點',70]];
+const saved=JSON.parse(localStorage.getItem('food-wheel')||'null');
+let foods=saved||defaults.map(([name,type,price],i)=>({id:i,name,type,price,fav:false}));let rotation=0,busy=false;
+const $=id=>document.getElementById(id);const save=()=>localStorage.setItem('food-wheel',JSON.stringify(foods));
+function filtered(){const type=$('type').value,budget=+$('budget').value;return foods.filter(f=>(type==='all'||f.type===type)&&f.price<=budget&&(!$('onlyFav').checked||f.fav));}
+function render(){const list=filtered();$('count').textContent=`${list.length} 項`;const step=360/(list.length||1);$('wheel').style.background=list.length?`conic-gradient(${list.map((_,i)=>`${['#f26b5b','#ffd166','#6fc7bc','#82a9db','#f8a978','#b8a4dc','#91c788','#f2a2bc'][i%8]} ${i*step}deg ${(i+1)*step}deg`).join(',')})`:'conic-gradient(#ddd 0 360deg)';$('wheel').innerHTML=list.map((f,i)=>{const angle=i*step+step/2;return `<span class="wheel-label" style="transform:rotate(${angle}deg) translateY(-${Math.min(145, list.length*3+80)}px) rotate(-${angle}deg) translate(-50%,-50%)">${f.name}</span>`}).join('');$('foodList').innerHTML=list.length?list.map(f=>`<div class="food"><div class="food-main"><div class="food-name">${f.name}</div><div class="food-meta">${f.type} · $${f.price}</div></div><button class="heart ${f.fav?'on':''}" data-fav="${f.id}" aria-label="${f.fav?'取消最愛':'加入最愛'}">♥</button><button class="remove" data-remove="${f.id}" aria-label="移除 ${f.name}">×</button></div>`).join(''):'<div class="empty">沒有符合條件的餐點<br>試著放寬篩選吧！</div>';}
+$('foodList').addEventListener('click',e=>{const fav=e.target.dataset.fav,remove=e.target.dataset.remove;if(fav!==undefined){foods.find(f=>f.id==fav).fav=!foods.find(f=>f.id==fav).fav;save();render()}if(remove!==undefined){foods=foods.filter(f=>f.id!=remove);save();render()}});
+['type','budget','onlyFav'].forEach(id=>$(id).addEventListener('change',render));
+$('addBtn').addEventListener('click',()=>{const input=$('newFood'),name=input.value.trim();if(!name)return;foods.push({id:Date.now(),name,type:'正餐',price:200,fav:false});input.value='';save();render()});$('newFood').addEventListener('keydown',e=>{if(e.key==='Enter')$('addBtn').click()});
+$('reset').addEventListener('click',()=>{foods=defaults.map(([name,type,price],i)=>({id:i,name,type,price,fav:false}));save();render()});
+$('spin').addEventListener('click',()=>{const list=filtered();if(busy)return;if(!list.length){$('result').innerHTML='<small>目前沒有可抽選的餐點，請調整條件。</small>';return}busy=true;$('spin').disabled=true;const chosen=list[Math.floor(Math.random()*list.length)],index=list.indexOf(chosen),step=360/list.length,target=360-(index*step+step/2),delta=1440+((target-(rotation%360)+360)%360);rotation+=delta;$('wheel').style.transform=`rotate(${rotation}deg)`;setTimeout(()=>{$('result').innerHTML=`<strong>${chosen.name}</strong><small>${chosen.type} · 約 $${chosen.price}　<i>今天就決定是它！</i></small>`;busy=false;$('spin').disabled=false},4300)});render();
+</script>
+</body>
+</html>
